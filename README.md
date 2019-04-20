@@ -1,6 +1,6 @@
 ## What is this?
 
-This is a quick redux cheatsheet I made for myself.  The patterns arent perfect but the ideas are all here.  There are 4 examples of components connected to redux here:
+This is a quick redux cheatsheet I made for myself using both class based and functional components.  The patterns arent perfect but the ideas are all here.  There are 4 examples of components connected to redux here:
 
  - The root component, App
  - Class based component ClassCount
