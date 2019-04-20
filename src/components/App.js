@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ClassCount from "./ClassCount";
+import FuncCount from "./FuncCount";
+import CustomHookCount from "./CustomHookCount";
 
 import { simpleAction, increaseCount } from "../redux/simpleAction";
 
@@ -40,6 +42,8 @@ class App extends Component {
           <button onClick={this.increaseCount}>increaseCount</button>
         </div>
         <ClassCount />
+        <FuncCount />
+        <CustomHookCount/>
       </div>
     );
   }
