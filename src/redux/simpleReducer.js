@@ -1,6 +1,6 @@
 export default (
   state = {
-    result: "whaddup",
+    result: "buffy",
     count: 0,
     form:{
       name:"bob",
@@ -14,7 +14,7 @@ export default (
     case "SIMPLE_ACTION":
       return {
         ...state,
-        result: action.payload
+        result: state.result==="the slayer" ? "buffy" :"the slayer"
       };
     case "INCREASE_COUNT":
       return {
