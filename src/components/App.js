@@ -3,20 +3,17 @@ import { connect } from "react-redux";
 import ClassCount from "./ClassCount";
 import FuncCount from "./FuncCount";
 import CustomHookCount from "./CustomHookCount";
+import Form from "./Form";
 
-import { simpleAction, increaseCount } from "../redux/simpleAction";
+import { simpleAction, increaseCount, updateForm } from "../redux/simpleAction";
 
-/*
- * mapDispatchToProps
- */
 const mapDispatchToProps = dispatch => ({
   simpleAction: () => dispatch(simpleAction()),
-  increaseCount: () => dispatch(increaseCount())
+  increaseCount: () => dispatch(increaseCount()),
+  updateForm: e => dispatch(updateForm(e))
 });
 
-/*
- * mapStateToProps
- */
+
 const mapStateToProps = state => ({
   ...state
 });
@@ -28,7 +25,9 @@ class App extends Component {
   increaseCount = e => {
     this.props.increaseCount();
   };
-
+  onChange = (field, e) => {
+    this.props.updateForm({ [field]: e });
+  };
   render() {
     return (
       <div className="App">
@@ -40,10 +39,11 @@ class App extends Component {
         <div>
           <h3>App Count {this.props.simpleReducer.count}</h3>
           <button onClick={this.increaseCount}>increaseCount</button>
+          <Form form={this.props.simpleReducer.form} change={this.onChange} />
         </div>
         <ClassCount />
         <FuncCount />
-        <CustomHookCount/>
+        <CustomHookCount />
       </div>
     );
   }

@@ -11,4 +11,11 @@ const increaseCount = () => dispatch => {
   })
 }
 
-export { simpleAction, increaseCount }
+const updateForm = (form) => dispatch => {
+  dispatch({
+    type:"UPDATE_FORM",
+    payload:form
+  })
+}
+
+export { simpleAction, increaseCount, updateForm }
