@@ -13,7 +13,6 @@ const mapDispatchToProps = dispatch => ({
   updateForm: e => dispatch(updateForm(e))
 });
 
-
 const mapStateToProps = state => ({
   ...state
 });
@@ -36,14 +35,16 @@ class App extends Component {
         </header>
         <pre>{JSON.stringify(this.props)}</pre>
         <button onClick={this.simpleAction}>Test redux action</button>
-        <div>
-          <h3>App Count {this.props.simpleReducer.count}</h3>
-          <button onClick={this.increaseCount}>increaseCount</button>
-          <Form form={this.props.simpleReducer.form} change={this.onChange} />
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          <div>
+            <h3>App Count {this.props.simpleReducer.count}</h3>
+            <button onClick={this.increaseCount}>increaseCount</button>
+            <Form form={this.props.simpleReducer.form} change={this.onChange} />
+          </div>
+          <ClassCount />
+          <FuncCount />
+          <CustomHookCount />
         </div>
-        <ClassCount />
-        <FuncCount />
-        <CustomHookCount />
       </div>
     );
   }
